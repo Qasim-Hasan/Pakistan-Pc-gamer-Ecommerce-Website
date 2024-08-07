@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+html, body {
+  height: 100%; /* Ensure the body takes up the full height of the viewport */
+  margin: 0;
+  font-family: Arial, sans-serif; /* Set default font family */
+  line-height: 1.6; /* Improve line spacing */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+body {
+  max-width: 100vw; /* Ensure the body width does not exceed viewport width */
+}
+
+.container {
+  width: 100%; /* Full width container */
+  max-width: 1200px; /* Example max width for larger screens */
+  margin: 0 auto; /* Center the container */
+  padding: 0 15px; /* Add padding for smaller screens */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px; /* Padding for small screens */
+  }
+}

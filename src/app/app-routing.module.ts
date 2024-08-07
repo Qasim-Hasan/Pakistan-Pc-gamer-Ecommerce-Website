@@ -1,7 +1,19 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderpageComponent } from './components/headerpage/headerpage.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { FooterpageComponent } from './components/footerpage/footerpage.component';
+import { ProductpageComponent } from './components/productpage/productpage.component';
+import { CartpageComponent } from './components/cartpage/cartpage.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '',redirectTo: '/app',pathMatch:'full'},
+  {path: 'headerpage',component:HeaderpageComponent},
+  {path: 'homepage',component:HomepageComponent},
+  {path: 'footerpage',component: FooterpageComponent},
+  {path: 'productpage',component: ProductpageComponent},
+  {path: 'cartpage',component: CartpageComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

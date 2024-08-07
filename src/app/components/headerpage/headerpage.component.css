@@ -1,0 +1,36 @@
+.navbar-brand {
+  margin-left: 20px;
+}
+
+.ml-auto {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+/* app.component.css or your header component CSS */
+.navbar .nav-link i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+.navbar .navbar-brand {
+  font-weight: bold; /* Make the brand name bold */
+}
+
+/* Ensure dropdown menu appears properly */
+.navbar-nav .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.navbar-nav .dropdown-toggle::after {
+  display: none; /* Remove default dropdown indicator */
+}
