@@ -1,6 +1,4 @@
-.card {
-  width: 220px; /* Adjust width based on image size and card layout */
-}
+
 
 .card-body {
   padding-top: 10px; /* Add padding if needed to prevent overlap */
@@ -35,7 +33,7 @@
 
 .view-btn::before,
 .cart-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -56,7 +54,6 @@
   color: #fff; /* Ensure text color remains white on hover */
 }
 
-
 .card {
   width: 220px;
   overflow: hidden;
@@ -68,9 +65,39 @@
   transform: scale(1.05); /* Slightly enlarge the card on hover */
 }
 
-
 .card:hover::before {
   left: 0; /* Slide in green light effect on hover */
   opacity: 1; /* Make it visible */
+}
+
+/* Custom styles for the drawer button */
+.drawer-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px; /* Adjust width as needed */
+  height: 15px; /* Adjust height as needed */
+}
+
+.line {
+  width: 20px; /* Match width with .hamburger-icon */
+  height: 3px; /* Line thickness */
+  background-color: black; /* Color of the lines */
+}
+
+/* Optional: Add some spacing to the button */
+.drawer-button {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 

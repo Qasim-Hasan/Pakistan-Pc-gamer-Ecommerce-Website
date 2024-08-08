@@ -1,3 +1,26 @@
+<!-- Drawer component on Homepage -->
+<!-- Drawer component on Homepage -->
+<div class="container">
+  <div class="row">
+    <div class="col d-flex align-items-center justify-content-start">
+      <button title="drawer" type="button" class="btn btn-light drawer-button" (click)="toggleDrawer()">
+        <div class="hamburger-icon">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </button>
+      <app-drawerpage></app-drawerpage>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Homepage Head Component on Homepage -->
+<app-hometitle></app-hometitle>
+
+<!-- Main Content Area -->
 <div class="container">
   <h1>Trending Product List</h1>
   <div class="row">

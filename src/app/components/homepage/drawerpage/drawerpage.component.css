@@ -1,0 +1,26 @@
+.drawer {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden */
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+.drawer-open {
+  left: 0; /* Show drawer */
+}
+.drawer-content {
+  padding: 15px;
+}
+.drawer-footer {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

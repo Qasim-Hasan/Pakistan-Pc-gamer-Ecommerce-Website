@@ -5,6 +5,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { FooterpageComponent } from './components/footerpage/footerpage.component';
 import { ProductpageComponent } from './components/productpage/productpage.component';
 import { CartpageComponent } from './components/cartpage/cartpage.component';
+import { DrawerpageComponent } from './components/homepage/drawerpage/drawerpage.component';
+import { HometitleComponent } from './components/homepage/hometitle/hometitle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'footerpage', component: FooterpageComponent },
   { path: 'productpage', component: ProductpageComponent },
   { path: 'cartpage', component: CartpageComponent },
+  { path: 'drawerpage', component: DrawerpageComponent },
+  { path: 'hometitle', component: HometitleComponent },
   { path: 'productpage/:id', component: ProductpageComponent },
   { path: 'cartpage/:id', component: CartpageComponent },
 ];

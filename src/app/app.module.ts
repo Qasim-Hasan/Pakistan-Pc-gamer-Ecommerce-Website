@@ -9,6 +9,8 @@ import { HeaderpageComponent } from './components/headerpage/headerpage.componen
 import { FooterpageComponent } from './components/footerpage/footerpage.component';
 import { ProductserviceService } from './services/productservice.service';
 import { RouterModule } from '@angular/router';
+import { DrawerpageComponent } from './components/homepage/drawerpage/drawerpage.component';
+import { HometitleComponent } from './components/homepage/hometitle/hometitle.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RouterModule } from '@angular/router';
     CartpageComponent,
     HeaderpageComponent,
     FooterpageComponent,
+    DrawerpageComponent,
+    HometitleComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule],
   providers: [ProductserviceService],
