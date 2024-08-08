@@ -7,16 +7,18 @@ import { ProductpageComponent } from './components/productpage/productpage.compo
 import { CartpageComponent } from './components/cartpage/cartpage.component';
 
 const routes: Routes = [
-  {path: '',redirectTo: '/app',pathMatch:'full'},
-  {path: 'headerpage',component:HeaderpageComponent},
-  {path: 'homepage',component:HomepageComponent},
-  {path: 'footerpage',component: FooterpageComponent},
-  {path: 'productpage',component: ProductpageComponent},
-  {path: 'cartpage',component: CartpageComponent},
+  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: 'headerpage', component: HeaderpageComponent },
+  { path: 'homepage', component: HomepageComponent },
+  { path: 'footerpage', component: FooterpageComponent },
+  { path: 'productpage', component: ProductpageComponent },
+  { path: 'cartpage', component: CartpageComponent },
+  { path: 'productpage/:id', component: ProductpageComponent },
+  { path: 'cartpage/:id', component: CartpageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

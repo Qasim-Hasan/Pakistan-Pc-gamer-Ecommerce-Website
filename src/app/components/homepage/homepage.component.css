@@ -1,4 +1,76 @@
-.card{
-  margin: 15px;
-  padding: 25px;
+.card {
+  width: 220px; /* Adjust width based on image size and card layout */
 }
+
+.card-body {
+  padding-top: 10px; /* Add padding if needed to prevent overlap */
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.view-btn,
+.cart-btn {
+  position: relative;
+  overflow: hidden;
+  color: #fff; /* Text color */
+  border: none; /* Remove default border */
+  transition: color 0.4s ease-in-out;
+}
+
+.view-btn {
+  background-color: #28a745; /* Green background for the view button */
+}
+
+.cart-btn {
+  background-color: #dc3545; /* Red background for the add to cart button */
+}
+
+.view-btn::before,
+.cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Light overlay effect */
+  transition: left 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.view-btn:hover::before,
+.cart-btn:hover::before {
+  left: 0; /* Slide in overlay on hover */
+}
+
+.view-btn:hover,
+.cart-btn:hover {
+  color: #fff; /* Ensure text color remains white on hover */
+}
+
+
+.card {
+  width: 220px;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+
+.card:hover::before {
+  left: 0; /* Slide in green light effect on hover */
+  opacity: 1; /* Make it visible */
+}
+

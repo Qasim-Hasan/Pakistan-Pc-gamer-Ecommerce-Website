@@ -1,1 +1,15 @@
-<p>productpage works!</p>
+<h2>Product Details</h2>
+<div *ngIf="selectedProduct" class="product-details-container mt-4">
+  <div class="card">
+    <img
+      class="card-img-top"
+      [src]="selectedProduct.image_url"
+      alt="{{ selectedProduct.name }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ selectedProduct.name }}</h5>
+      <p class="card-text">Price: {{'$' + selectedProduct.price }}</p>
+      <p class="card-text">Description: {{selectedProduct.description}}</p>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,34 @@
-<p>cartpage works!</p>
+<div class="cart-container">
+  <h2>Your Cart</h2>
+  <div *ngIf="cartItems.length === 0">
+    <p>Your cart is empty.</p>
+  </div>
+  <ul *ngIf="cartItems.length > 0">
+    <li *ngFor="let item of cartItems">
+      <div class="product-item">
+        <img
+          [src]="item.product.image_url"
+          alt="{{ item.product.name }}"
+          class="product-image"
+        />
+        <div class="product-info">
+          <h3>{{ item.product.name }}</h3>
+          <div class="product-details">
+            <p>Price: {{ item.product.price | currency }}</p>
+            <p>Product ID: {{ item.product.id }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="increase" (click)="increaseQuantity(item)">
+            Increase
+          </button>
+          <button class="decrease" (click)="decreaseQuantity(item)">
+            Decrease
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
+</div>

@@ -7,6 +7,8 @@ import { ProductpageComponent } from './components/productpage/productpage.compo
 import { CartpageComponent } from './components/cartpage/cartpage.component';
 import { HeaderpageComponent } from './components/headerpage/headerpage.component';
 import { FooterpageComponent } from './components/footerpage/footerpage.component';
+import { ProductserviceService } from './services/productservice.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,10 @@ import { FooterpageComponent } from './components/footerpage/footerpage.componen
     ProductpageComponent,
     CartpageComponent,
     HeaderpageComponent,
-    FooterpageComponent
+    FooterpageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, RouterModule],
+  providers: [ProductserviceService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

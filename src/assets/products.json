@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "rtx 4070", "price": 100, "image_url": "https://tpucdn.com/gpu-specs/images/c/3924-front.small.jpg" },
+  { "id": 2, "name": "razor naga pro", "price": 150, "image_url": "https://tpucdn.com/review/razer-naga-v2-pro/images/mainbuttons_small.jpg" },
+  { "id": 3, "name": "skyloong keyboard", "price": 200, "image_url": "https://rbtechngames.com/wp-content/uploads/2021/10/image_2021-10-01_190638.png" },
+  { "id": 4, "name": "ryzen 7800x3d", "price": 250, "image_url": "https://cdn.mos.cms.futurecdn.net/NG35cjoxuWeJfJpLoWtGB9.jpg" }
+]
