@@ -101,3 +101,167 @@
   padding: 0;
 }
 
+/* General Styles */
+.container {
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Card Styles */
+.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.hover-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-primary, .btn-success {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.view-btn {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.cart-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+
+/* General Styles */
+.container {
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Scrollable Container Styles */
+.scrollable-container {
+  max-height: 80vh; /* Adjust based on your design */
+  overflow-y: auto;
+}
+
+/* Card Styles */
+.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.hover-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-primary, .btn-success {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.view-btn {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.cart-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .card-img-top {
+    height: 150px;
+  }
+}

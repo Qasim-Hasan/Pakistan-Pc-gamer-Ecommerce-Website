@@ -5,6 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/homepage">
@@ -16,7 +17,16 @@
           <i class="fas fa-box"></i> Products
         </a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/account">
+          <i class="fas fa-user"></i> Account
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/saved">
+          <i class="fas fa-heart"></i> Saved
+        </a>
+      </li>
     </ul>
     <div class="ml-auto">
       <ul class="navbar-nav">
@@ -25,6 +35,12 @@
             <i class="fas fa-shopping-cart"></i> Go to Cart
           </a>
         </li>
+              <!-- Additional Links -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/stores">
+          <i class="fas fa-store"></i> Stores
+        </a>
+      </li>
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -35,4 +51,3 @@
     </div>
   </div>
 </nav>
-

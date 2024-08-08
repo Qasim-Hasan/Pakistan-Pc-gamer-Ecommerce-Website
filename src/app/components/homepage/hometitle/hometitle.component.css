@@ -25,29 +25,29 @@ body {
   overflow: hidden;
 }
 
-  .panel .content {
-      position: absolute;
-      width: 100vw;
-      min-height: 45vw;
-      color: #FFF;
-  }
+.panel .content {
+  position: absolute;
+  width: 100vw;
+  min-height: 45vw;
+  color: #FFF;
+  display: flex;
+  justify-content: space-between; /* Ensure space is distributed between text sections and image */
+  align-items: center;
+}
 
-  .panel .description {
-      width: 25%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      text-align: center;
-  }
+.panel .description {
+  color: white; /* Ensure text color is readable */
+  width: 25%; /* Adjust width as needed */
+  padding: 0 20px; /* Add padding to ensure text does not touch edges */
+}
 
-  .panel img {
-      box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
-      width: 35%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
+.panel img {
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+  width: 30%; /* Adjust this value based on your needs */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Ensures image is treated as a block element */
+  margin: auto; /* Centers the image horizontally */
+}
 
 
 .bottom {
@@ -55,22 +55,27 @@ body {
   z-index: 1;
 }
 
-  .bottom .description {
-      right: 5%;
-  }
+.bottom .description.left {
+  margin-left: 5%;
+}
+
+.bottom .description.right {
+  margin-right: 5%;
+}
 
 .top {
   background-color: rgb(77, 69, 173);
   z-index: 2;
   width: 50vw;
-
-  /*-webkit-clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
-  clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);*/
 }
 
-  .top .description {
-      left: 5%;
-  }
+.top .description.left {
+  margin-left: 5%;
+}
+
+.top .description.right {
+  margin-right: 5%;
+}
 
 /* Handle. */
 .handle {
@@ -108,6 +113,6 @@ body {
 /* Responsive. */
 @media (max-width: 900px) {
   body {
-      font-size: 75%;
+    font-size: 75%;
   }
 }
