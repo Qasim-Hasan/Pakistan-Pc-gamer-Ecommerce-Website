@@ -11,7 +11,7 @@ import { ProductserviceService } from './services/productservice.service';
 import { RouterModule } from '@angular/router';
 import { DrawerpageComponent } from './components/homepage/drawerpage/drawerpage.component';
 import { HometitleComponent } from './components/homepage/hometitle/hometitle.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,7 @@ import { HometitleComponent } from './components/homepage/hometitle/hometitle.co
     DrawerpageComponent,
     HometitleComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule,HttpClientModule],
   providers: [ProductserviceService],
   bootstrap: [AppComponent],
 })

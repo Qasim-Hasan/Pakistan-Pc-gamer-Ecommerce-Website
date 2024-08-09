@@ -20,8 +20,17 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.productService.getProducts().subscribe(
+      data => {
+        this.products = data;
+      },
+      error => {
+        console.error('Error fetching products:', error);
+        // Optionally, you can show a user-friendly message or handle the error gracefully
+      }
+    );
   }
+
 
   viewProduct(id: number): void {
     this.router.navigate(['/productpage', id]); // Use the Router to navigate

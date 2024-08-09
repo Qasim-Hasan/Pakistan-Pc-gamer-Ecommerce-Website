@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderpageComponent } from './components/headerpage/headerpage.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -9,7 +9,7 @@ import { DrawerpageComponent } from './components/homepage/drawerpage/drawerpage
 import { HometitleComponent } from './components/homepage/hometitle/hometitle.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' }, // Redirect to homepage by default
   { path: 'headerpage', component: HeaderpageComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: 'footerpage', component: FooterpageComponent },
@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'hometitle', component: HometitleComponent },
   { path: 'productpage/:id', component: ProductpageComponent },
   { path: 'cartpage/:id', component: CartpageComponent },
+  { path: '**', redirectTo: '/homepage', pathMatch: 'full' }, // Redirect unmatched paths to homepage
 ];
 
 @NgModule({

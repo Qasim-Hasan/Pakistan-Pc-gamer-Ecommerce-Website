@@ -35,3 +35,31 @@
 .mt-4 {
   margin-top: 1.5rem;
 }
+
+.btn-link {
+  text-decoration: none; /* Remove underline from the link button */
+}
+
+.btn-link .bi {
+  color: black; /* Icon color */
+}
+
+.text-dark {
+  color: black !important; /* Text color */
+}
+
+.fw-bold {
+  font-weight: bold !important; /* Font weight */
+}
+
+.fs-4 {
+  font-size: 1.5rem; /* Adjust icon size */
+}
+
+.me-2 {
+  margin-right: 0.5rem; /* Gap between icon and text */
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem; /* Space below the heading */
+}

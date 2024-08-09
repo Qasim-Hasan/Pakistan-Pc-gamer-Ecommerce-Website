@@ -1,31 +1,62 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
-
+import { CartItem } from '../models/cart-item'; // Import CartItem interface
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'; // Import map operator
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductserviceService {
-  private products: Product[] = [
-  { id: 1, name: 'RTX 4070', price: 100, image_url: 'https://tpucdn.com/gpu-specs/images/c/3924-front.small.jpg', description: 'High performance graphics card suitable for gaming and creative work.' },
-  { id: 2, name: 'Razer Naga Pro', price: 150, image_url: 'https://tpucdn.com/review/razer-naga-v2-pro/images/mainbuttons_small.jpg', description: 'Gaming mouse with customizable buttons and ergonomic design.' },
-  { id: 3, name: 'Skyloong Keyboard', price: 200, image_url: 'https://rbtechngames.com/wp-content/uploads/2021/10/image_2021-10-01_190638.png', description: 'Mechanical keyboard with customizable RGB lighting and switches.' },
-  { id: 4, name: 'Ryzen 7800X3D', price: 250, image_url: 'https://cdn.mos.cms.futurecdn.net/NG35cjoxuWeJfJpLoWtGB9.jpg', description: 'Powerful CPU with 3D V-Cache for enhanced gaming and productivity.' },
-  { id: 5, name: 'RTX 4060', price: 100, image_url: 'https://tpucdn.com/gpu-specs/images/c/3924-front.small.jpg', description: 'Mid-range graphics card offering good performance for most games.' },
-  { id: 6, name: 'Razer Naga Essential', price: 150, image_url: 'https://tpucdn.com/review/razer-naga-v2-pro/images/mainbuttons_small.jpg', description: 'Gaming mouse with essential features and programmable buttons.' },
-  { id: 7, name: 'Skyloong Keyboard', price: 200, image_url: 'https://rbtechngames.com/wp-content/uploads/2021/10/image_2021-10-01_190638.png', description: 'Mechanical keyboard with customizable RGB lighting and switches.' },
-  { id: 8, name: 'Ryzen 7800X3D', price: 250, image_url: 'https://cdn.mos.cms.futurecdn.net/NG35cjoxuWeJfJpLoWtGB9.jpg', description: 'Powerful CPU with 3D V-Cache for enhanced gaming and productivity.' }
-];
+  // Define API endpoints based on environment variables
+  private api_homepage = environment.apiUrl + '/homepage';
+  private api_productpage = environment.apiUrl + '/productpage';
+  private api_cartpage = environment.apiUrl + '/cartpage';
 
-  constructor() {}
-// Return the product List
-  getAllProducts(): Product[] {
-    return this.products;
-  }
-// Return a Id of a product
-  getProductById(id: number): Product | undefined {
-    return this.products.find(product => product.id === id);
+  // Inject HttpClient to make HTTP requests
+  constructor(private http: HttpClient) {}
+
+  /**
+   * Fetches the list of products from the homepage API endpoint.
+   * @returns An Observable of Product array.
+   */
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.api_homepage);
   }
 
+  /**
+   * Adds a product to the cart by sending a POST request to the cart API endpoint.
+   * @param product The product to be added to the cart.
+   * @returns An Observable of the added Product.
+   */
+  addToCart(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.api_cartpage, product);
+  }
 
+  /**
+   * Retrieves all cart items from the cart API endpoint and maps them to CartItem objects.
+   * Assumes the backend returns an array of Products.
+   * Each Product is transformed into a CartItem with an initial quantity of 1.
+   * @returns An Observable of CartItem array.
+   */
+  getCartItems(): Observable<CartItem[]> {
+    return this.http.get<Product[]>(this.api_cartpage).pipe(
+      map(products => products.map(product => ({
+        product: product,
+        quantity: 1 // Initialize quantity or use another default logic
+      })))
+    );
+  }
+
+  /**
+   * Fetches a single product by its ID from the product API endpoint.
+   * @param productId The ID of the product to fetch.
+   * @returns An Observable of the Product.
+   */
+  getProductId(productId: number): Observable<Product> {
+    const url = `${this.api_productpage}?id=${productId}`;
+    return this.http.get<Product>(url);
+  }
 }
