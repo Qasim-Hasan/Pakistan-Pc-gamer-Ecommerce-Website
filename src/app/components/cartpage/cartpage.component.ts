@@ -1,7 +1,7 @@
 // cartpage.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProductserviceService } from '../../services/productservice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../models/products';
 import { CartItem } from '../../models/cart-item';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,7 +17,8 @@ export class CartpageComponent implements OnInit {
 
   constructor(
     private productService: ProductserviceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -101,5 +102,16 @@ export class CartpageComponent implements OnInit {
   }
 
 
+  viewHomePage(): void {
+    this.router.navigate(['/homepage']); // Navigate to homepage
+  }
+
+  removeFromCart(item: CartItem): void {
+    if (confirm('Are you sure you want to remove this item from the cart?')) {
+      this.productService.deleteCartItem(item.id).subscribe(() => {
+        this.loadCartItems(); // Refresh cart items after deletion
+      });
+    }
+  }
 
 }

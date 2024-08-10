@@ -19,6 +19,12 @@
 .cart-container li {
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+}
+
+.cart-container li:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  transform: scale(1.02); /* Slightly enlarge list item on hover */
 }
 
 /* Styling each item in the cart */
@@ -31,6 +37,12 @@
   margin-bottom: 10px;
   background-color: #f9f9f9;
   justify-content: space-between; /* Distribute space between items */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for box shadow and transform */
+}
+
+.product-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  transform: scale(1.02); /* Slightly enlarge product item on hover */
 }
 
 .product-image {
@@ -38,6 +50,11 @@
   height: auto;
   margin-right: 15px;
   border-radius: 4px;
+  transition: transform 0.3s ease; /* Smooth transition for image zoom */
+}
+
+.product-image:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .product-info {
@@ -62,6 +79,11 @@
 }
 
 /* Buttons for increasing and decreasing quantity */
+.buttons {
+  display: flex; /* Flex container for buttons */
+  align-items: center; /* Align buttons vertically */
+}
+
 button {
   margin: 0 5px; /* Adjust margin for buttons */
   padding: 5px 10px;
@@ -83,14 +105,33 @@ button.increase:hover {
 }
 
 button.decrease {
-  background-color: #dc3545; /* Red for decrease */
+  background-color: #007bff; /* Blue for decrease */
 }
 
 button.decrease:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button.remove {
+  background-color: #dc3545; /* Red for remove */
+  color: white;
+  width: 40px; /* Square shape */
+  height: 40px; /* Square shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* Square with rounded corners */
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+button.remove:hover {
   background-color: #c82333; /* Darker red on hover */
   transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
+/* Clear cart button */
 .clear-cart-btn {
   margin-top: 20px;
   background-color: #dc3545;
@@ -102,5 +143,52 @@ button.decrease:hover {
 }
 
 .clear-cart-btn:hover {
-  background-color: #c82333;
+  background-color: #c82333; /* Darker red on hover */
 }
+
+/* Styles for Back to Home button */
+.btn-link {
+  text-decoration: none; /* Remove underline from the link button */
+  font-size: 1.8rem; /* Larger font size */
+  font-weight: bold; /* Make text bold */
+  transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+.btn-link:hover {
+  color: #0056b3; /* Change color on hover */
+}
+
+.btn-link .bi {
+  color: black; /* Icon color */
+  font-size: 2rem; /* Larger icon size */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.btn-link:hover .bi {
+  color: #0056b3; /* Change icon color on hover */
+}
+
+.text-dark {
+  color: black !important; /* Text color */
+}
+
+.fw-bold {
+  font-weight: bold !important; /* Font weight */
+}
+
+.fs-4 {
+  font-size: 1.5rem; /* Adjust icon size */
+}
+
+.me-2 {
+  margin-right: 0.5rem; /* Gap between icon and text */
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem; /* Space below the heading */
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+

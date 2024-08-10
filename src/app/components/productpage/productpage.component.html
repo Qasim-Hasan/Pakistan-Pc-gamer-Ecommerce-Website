@@ -1,9 +1,12 @@
 <h2 class="d-flex align-items-center mb-4">
-  <button (click)="viewHomePage()" class="btn btn-link text-dark fw-bold">
-    <i class="bi bi-arrow-left fs-4 me-2"></i>
-    <!-- Bootstrap Icons arrow-left -->
-    Back to Home
-  </button>
+  <h2 class="d-flex align-items-center mb-4">
+    <button title="home" (click)="viewHomePage()" class="btn btn-link text-dark fw-bold">
+      <i class="bi bi-arrow-left fs-4 me-2"></i>
+      <i class="bi bi-house fs-4 me-2"></i>
+
+    </button>
+
+  </h2>
   <span class="ms-3">Product Details</span>
 </h2>
 <div *ngIf="selectedProduct" class="product-details-container mt-4">

@@ -87,4 +87,13 @@ export class ProductserviceService {
     console.error('An error occurred:', error.message);
     return throwError('Something went wrong; please try again later.');
   }
+
+  removeFromCart(productId: number): Observable<any> {
+    return this.http.delete(`${this.api_cartpage}/${productId}`);
+  }
+
+    // Method to delete a specific cart item
+    deleteCartItem(id: number): Observable<void> {
+      return this.http.delete<void>(`${this.api_cartpage}/${id}`);
+    }
 }
