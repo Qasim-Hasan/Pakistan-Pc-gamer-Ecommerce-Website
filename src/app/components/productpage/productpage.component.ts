@@ -33,4 +33,9 @@ export class ProductpageComponent implements OnInit {
   viewHomePage(): void {
     this.router.navigate(['/homepage']); // Navigate to homepage
   }
+
+  addtoCart(id: number): void {
+    this.router.navigate(['/cartpage', id]);
+  }
+
 }

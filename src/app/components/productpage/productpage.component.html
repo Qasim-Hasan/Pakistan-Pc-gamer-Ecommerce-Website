@@ -1,6 +1,7 @@
 <h2 class="d-flex align-items-center mb-4">
   <button (click)="viewHomePage()" class="btn btn-link text-dark fw-bold">
-    <i class="bi bi-arrow-left fs-4 me-2"></i> <!-- Bootstrap Icons arrow-left -->
+    <i class="bi bi-arrow-left fs-4 me-2"></i>
+    <!-- Bootstrap Icons arrow-left -->
     Back to Home
   </button>
   <span class="ms-3">Product Details</span>
@@ -16,6 +17,14 @@
       <h5 class="card-title">{{ selectedProduct.name }}</h5>
       <p class="card-text">Price: {{ "$" + selectedProduct.price }}</p>
       <p class="card-text">Description: {{ selectedProduct.description }}</p>
+      <button (click)="addtoCart(selectedProduct.id)" class="btn btn-success cart-btn">
+        Add to Cart
+      </button>
     </div>
   </div>
+</div>
+
+<!-- Display this message if no product is selected -->
+<div *ngIf="!selectedProduct" class="mt-4">
+  <p class="text-center">View a product to see its details.</p>
 </div>

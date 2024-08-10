@@ -51,8 +51,8 @@ export class CartpageComponent implements OnInit {
 
   addToCart(product: Product): void {
     this.productService.addToCart(product).subscribe(
-      () => {
-        console.log('Product added to cart');
+      (response: any) => {
+        console.log('Product added to cart:', response);
         this.loadCartItems(); // Reload cart items to reflect the newly added product
       },
       (error: HttpErrorResponse) => {
@@ -61,9 +61,22 @@ export class CartpageComponent implements OnInit {
     );
   }
 
+  clearCart(): void {
+    this.productService.clearCart().subscribe(
+      () => {
+        console.log('Cart cleared successfully');
+        this.loadCartItems(); // Reload cart items to reflect the cleared cart
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error clearing cart:', error.message);
+      }
+    );
+  }
+
+
   increaseQuantity(item: CartItem): void {
     item.quantity += 1;
-    this.productService.updateCartItemQuantity(item.id, item.quantity).subscribe(
+    this.productService.updateCartItemQuantity(item).subscribe(
       () => {
         console.log('Quantity updated');
       },
@@ -76,7 +89,7 @@ export class CartpageComponent implements OnInit {
   decreaseQuantity(item: CartItem): void {
     if (item.quantity > 1) {
       item.quantity -= 1;
-      this.productService.updateCartItemQuantity(item.id, item.quantity).subscribe(
+      this.productService.updateCartItemQuantity(item).subscribe(
         () => {
           console.log('Quantity updated');
         },
@@ -87,15 +100,6 @@ export class CartpageComponent implements OnInit {
     }
   }
 
-  clearCart(): void {
-    this.productService.clearCart().subscribe(
-      () => {
-        console.log('Cart cleared');
-        this.cartItems = []; // Update the local cartItems to reflect the cleared cart
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Error clearing cart:', error.message);
-      }
-    );
-  }
+
+
 }
