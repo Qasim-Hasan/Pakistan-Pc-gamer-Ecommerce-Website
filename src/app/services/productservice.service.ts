@@ -1,62 +1,63 @@
+// services/productservice.service.ts
 import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
-import { CartItem } from '../models/cart-item'; // Import CartItem interface
+import { CartItem } from '../models/cart-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'; // Import map operator
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductserviceService {
-  // Define API endpoints based on environment variables
-  private api_homepage = environment.apiUrl + '/homepage';
-  private api_productpage = environment.apiUrl + '/productpage';
-  private api_cartpage = environment.apiUrl + '/cartpage';
+  private api_homepage = environment.apiUrl + 'api/product/homepage';
+  private api_productpage = environment.apiUrl + 'api/product/productpage/';
+  private api_cartpage = environment.apiUrl + 'api/Cart/cartpage';
 
-  // Inject HttpClient to make HTTP requests
   constructor(private http: HttpClient) {}
 
-  /**
-   * Fetches the list of products from the homepage API endpoint.
-   * @returns An Observable of Product array.
-   */
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.api_homepage);
   }
 
-  /**
-   * Adds a product to the cart by sending a POST request to the cart API endpoint.
-   * @param product The product to be added to the cart.
-   * @returns An Observable of the added Product.
-   */
-  addToCart(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.api_cartpage, product);
+  addToCart(product: Product): Observable<void> {
+    return this.http.post<void>(this.api_cartpage, product);
   }
 
-  /**
-   * Retrieves all cart items from the cart API endpoint and maps them to CartItem objects.
-   * Assumes the backend returns an array of Products.
-   * Each Product is transformed into a CartItem with an initial quantity of 1.
+   /**
+   * Fetches all cart items from the cart API endpoint and maps them to CartItem objects.
    * @returns An Observable of CartItem array.
    */
-  getCartItems(): Observable<CartItem[]> {
-    return this.http.get<Product[]>(this.api_cartpage).pipe(
-      map(products => products.map(product => ({
-        product: product,
-        quantity: 1 // Initialize quantity or use another default logic
+   getCartItems(): Observable<CartItem[]> {
+    return this.http.get<any[]>(this.api_cartpage).pipe(
+      map(items => items.map(item => ({
+        id: item.CartItemId,
+        productId: item.ProductId,
+        quantity: item.Quantity,
+        product: {
+          id: item.ProductId,
+          name: item.ProductName,
+          price: item.ProductPrice,
+          image_url: item.ProductImageUrl,
+          description: item.ProductDescription
+        }
       })))
     );
   }
 
-  /**
-   * Fetches a single product by its ID from the product API endpoint.
-   * @param productId The ID of the product to fetch.
-   * @returns An Observable of the Product.
-   */
-  getProductId(productId: number): Observable<Product> {
-    const url = `${this.api_productpage}?id=${productId}`;
-    return this.http.get<Product>(url);
+  updateCartItemQuantity(id: number, quantity: number): Observable<any> {
+    return this.http.put<any>(`${this.api_cartpage}/Cart/updateQuantity/${id}`, { quantity });
+  }
+
+  clearCart(): Observable<any> {
+    return this.http.delete<any>(`${this.api_cartpage}/Cart/clear`);
+  }
+
+  getProductId(Id: number): Observable<Product> {
+    const url = `${this.api_productpage}${Id}`;
+    return this.http.get<Product[]>(url).pipe(
+      map(products => products[0]) // Extract the first product from the array
+    );
   }
 }

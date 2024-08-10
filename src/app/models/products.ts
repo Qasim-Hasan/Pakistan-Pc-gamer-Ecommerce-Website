@@ -1,12 +1,8 @@
-export class Product {
-  id: number = 0;
-  name: string = '';
-  price: number = 0;
-  image_url: string = '';
-  description: string = '';
-}
-
-export interface CartItem {
-  product: Product;
-  quantity: number;
+// models/products.ts
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image_url: string; // Use image_url to match the API response
+  description: string;
 }
